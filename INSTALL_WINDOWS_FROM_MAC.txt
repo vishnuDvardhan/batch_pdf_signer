@@ -1,0 +1,34 @@
+BATCH PDF SIGNER — WINDOWS INSTALLER FROM YOUR MAC
+
+This ZIP is a source/build bundle, NOT the finished .exe. GitHub's Windows
+runner must build it before an installer exists. The workflow has not been
+claimed as tested until a successful run completes.
+
+ONE-TIME STEPS
+1. Sign in at https://github.com and create a new repository (Private is fine).
+2. Upload the CONTENTS of this folder to the repository root. Ensure app.py,
+   requirements.txt, installer.iss, and .github/workflows/windows-installer.yml
+   are in the expected root paths, not nested in an extra folder.
+3. Open the repository's Actions tab and enable Actions if prompted.
+4. Select "Build Windows installer", click "Run workflow", then run it.
+5. When the run succeeds, open it and download the
+   BatchPDFSignerSetup-Windows artifact from the Artifacts section.
+6. Unzip that artifact to get BatchPDFSignerSetup.exe.
+7. Send the .exe to your dad. He double-clicks it and follows the installer.
+   He does not need Python, Docker, or programming tools on his PC.
+
+FEATURES
+- Batch PDFs or all PDFs in a folder
+- Extract signature photo to transparent PNG (best with dark ink on light paper)
+- Page selection: all, first, last, or ranges such as 1,3,5-7
+- Placement presets/custom coordinates, size and margin
+- Save signed copies separately and report per-file errors
+
+LIMITATIONS AND SAFETY
+- Image stamping is not a cryptographic signature or proof of identity.
+- USB-token DSC integration is not included.
+- Test on copies of important PDFs and inspect extracted signature PNG first.
+- Installer is unsigned and may trigger Windows SmartScreen. Only run a build
+  you initiated and trust.
+- GitHub artifacts are retained for 14 days.
+- If the build fails, share the error from the failed Actions step.
